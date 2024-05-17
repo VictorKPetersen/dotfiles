@@ -1,0 +1,30 @@
+palette = "dracula"
+
+[username]
+show_always = true
+
+[character]
+error_symbol = "[](fg:bold red)"
+success_symbol = "[󰜴](fg:bold green)"
+
+[directory]
+style = "fg:bold italic purple"
+[lua]
+symbol = "  "
+
+[python]
+symbol = "  "
+
+
+[palettes.dracula]
+background = "#282A36"
+currentLine = "#44475A"
+foreGround = "#F8F8F2"
+comments = "#6272A4"
+cyan = "#8BE9FD"
+green = "#50FA7B"
+orange = "#FFB86C"
+pink = "#FF79C6"
+purple = "#BD93F9"
+red = "#FF5555"
+yellow = "#F1FA8C"
