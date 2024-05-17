@@ -1,0 +1,28 @@
+colors.draw_bold_text_with_bright_colors = true
+
+#Dracula Color Scheme
+import = ["~/.config/alacritty/dracula.toml"]
+
+#Window Opacity
+[window]
+opacity = 0.85
+
+#Ubuntu Mono Nerd Font
+[font]
+size = 12.0
+
+[font.bold]
+family = "UbuntuMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "UbuntuMono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "UbuntuMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+style = "Regular"
