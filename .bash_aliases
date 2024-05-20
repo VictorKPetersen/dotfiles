@@ -22,3 +22,6 @@ alias add='git add'
 alias adda='git add -A'
 alias fetch='git fetch'
 alias pull='git pull'
+
+#File Attribute/Metadata aliases
+alias getftextattr='getfattr --encoding=text --dump'
