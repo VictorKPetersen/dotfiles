@@ -11,6 +11,9 @@ fi
 
 PS1='[\u@\h \W]\$ '
 
+#Config git alias
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # Init starship prompt
 eval "$(starship init bash)"
-alias config='/usr/bin/git --git-dir=/home/terra/.cfg/ --work-tree=/home/terra'
+
