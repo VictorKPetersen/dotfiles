@@ -25,3 +25,6 @@ alias pull='git pull'
 
 #File Attribute/Metadata aliases
 alias getftextattr='getfattr --encoding=text --dump'
+
+#SSH agent Aliases
+alias sshstart='eval "$(ssh-agent -s)"'
