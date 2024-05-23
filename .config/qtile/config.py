@@ -35,7 +35,7 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 terminal = "alacritty"
-browser = "firefox"
+browser = "brave"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
