@@ -9,11 +9,6 @@ return {
                 "lua",
                 "vim",
                 "vimdoc",
-                "query",
-                "elixir",
-                "heex",
-                "javascript",
-                "html",
                 "java",
             },
             --Enable highlighting
