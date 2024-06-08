@@ -32,9 +32,10 @@ import subprocess
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Match, Screen
 
+
 # config imports
 import keymaps
-
+import colors
 
 # Hook that runs upon startup, calls the autostart.sh script
 @hook.subscribe.startup_once
@@ -49,21 +50,36 @@ keymaps.setUpAllKeyMaps(keys)
 mouse = []
 keymaps.setUpAllMouseMaps(mouse)
 
+colorScheme = colors.Dracula
+
+layoutTheme = {
+    "border_width": 1,
+    "border_focus": colorScheme[8],
+    "border_normal": colorScheme[0],
+    "margin": 12
+}
 
 layouts = [
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+    layout.Max(**layoutTheme),
+    layout.MonadThreeCol(
+        **layoutTheme,
+        main_centered=True,
+        new_client_position="bottom",
+        ratio=0.50
+    ),
+
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    # layout.MonadTall(**layoutTheme),
+    # layout.MonadWide(**layoutTheme),
+    # layout.Stack(**layoutTheme, num_stacks=2),
+    # layout.Bsp(**layoutTheme),
+    # layout.Matrix(**layoutTheme),
+    # layout.RatioTile(**layoutTheme),
+    # layout.Tile(**layoutTheme),
+    # layout.TreeTab(**layoutTheme),
+    # layout.VerticalTile(**layoutTheme),
+    # layout.Zoomy(**layoutTheme),
+    # layout.Columns(**layoutTheme, border_focus_stack=["#d75f5f", "#8f3d3d"]),
 ]
 
 widget_defaults = dict(

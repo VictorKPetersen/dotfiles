@@ -1,4 +1,4 @@
-from libqtile.config import Group, Key
+from libqtile.config import Group, Key, KeyChord
 from libqtile.lazy import lazy
 from libqtile.config import Click, Drag
 
@@ -40,7 +40,14 @@ def setUpWindowMovementMaps(keys):
             Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
             Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
             Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-            Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+            Key([mod, "control"], "plus", lazy.layout.grow(), desc="Grow window"),
+            Key([mod, "control"], "minus", lazy.layout.shrink(), desc="Shrink window"),
+
+            KeyChord([mod], "p", [
+                Key([], "n", lazy.layout.normalize(), desc="Normalize windows"),
+                Key([], "r", lazy.layout.reset(), desc="Reset windows"),
+                Key([], "s", lazy.layout.swap_main(), desc="Swap to main pane")
+            ]),
 
             # Change between layouts
             Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
