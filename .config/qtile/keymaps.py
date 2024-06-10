@@ -7,19 +7,21 @@ terminal = "alacritty"
 browser = "brave"
 
 
-def setUpAllKeyMaps(keys):
-    setUpWindowMovementMaps(keys)
-    setUpGeneralMaps(keys)
-    setUpVirtualDesktopSwitching(keys)
+def setUpKeyMaps():
+    keyMaps = []
+    keyMaps.extend(setUpWindowMovementMaps())
+    keyMaps.extend(setUpGeneralMaps())
+    return keyMaps
 
 
-def setUpAllMouseMaps(mouse):
-    setUpMouseFloatingWindow(mouse)
+def setUpMouseMaps():
+    mouseMaps = []
+    mouseMaps.extend(setUpMouseFloatingWindow())
+    return mouseMaps
 
 
-def setUpWindowMovementMaps(keys):
-    keys.extend(
-        [
+def setUpWindowMovementMaps():
+    movementMaps = [
             # Move focus between windows
             Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
             Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -59,29 +61,29 @@ def setUpWindowMovementMaps(keys):
             Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
         ]
 
-    )
+    return movementMaps
 
 
-def setUpGeneralMaps(keys):
-    keys.extend(
-        [
-            # Launch Various Programs
-            Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-            Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
-            Key([mod], "r", lazy.spawn("dmenu_run"), desc="Spawn a command using a prompt widget"),
+def setUpGeneralMaps():
+    generalMaps = [
+        # Launch Various Programs
+        Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+        Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
+        Key([mod], "r", lazy.spawn("dmenu_run"), desc="Spawn a command using a prompt widget"),
 
-            # Various Usefull Commands
-            Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill the focused window"),
-            Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-            Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-        ]
-    )
+        # Various Usefull Commands
+        Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill the focused window"),
+        Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    ]
+
+    return generalMaps
 
 
-def setUpVirtualDesktopSwitching(keys):
-    groups = [Group(i) for i in "123456789"]
+def setUpVirtualDesktopSwitching(groups):
+    groupMaps = []
     for i in groups:
-        keys.extend(
+        groupMaps.extend(
             [
                 # mod1 + group number = switch to group
                 Key([mod], i.name, lazy.group[i.name].toscreen(),
@@ -89,18 +91,20 @@ def setUpVirtualDesktopSwitching(keys):
 
                 # mod1 + shift + group number = switch to & move focused window to group
                 Key([mod, "shift"], i.name, lazy.window.togroup(i.name,
-                    switch_group=True),
+                    switch_group=False),
                     desc="Switch to & move focused window to group {}".format(i.name)),
             ]
         )
 
+    return groupMaps
 
-def setUpMouseFloatingWindow(mouse):
-    mouse.extend(
-        [
+
+def setUpMouseFloatingWindow():
+    floatingMaps = [
             # Drag floating layouts.
             Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
             Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
             Click([mod], "Button2", lazy.window.bring_to_front()),
         ]
-    )
+
+    return floatingMaps

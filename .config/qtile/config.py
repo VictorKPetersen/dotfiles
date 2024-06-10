@@ -30,12 +30,13 @@ import subprocess
 
 # qtile imports
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Match, Screen
+from libqtile.config import Match, Screen, Group
 
 
 # config imports
 import keymaps
 import colors
+
 
 # Hook that runs upon startup, calls the autostart.sh script
 @hook.subscribe.startup_once
@@ -44,14 +45,38 @@ def start_once():
     subprocess.Popen([autostart])
 
 
-keys = []
-keymaps.setUpAllKeyMaps(keys)
+# Get remaps for the keyboard from keymaps.py
+keys = keymaps.setUpKeyMaps()
 
-mouse = []
-keymaps.setUpAllMouseMaps(mouse)
 
+# Get remaps for the mouse from keymaps.py
+mouse = keymaps.setUpMouseMaps()
+
+
+# Set Up groups
+groups = []
+
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+group_layouts = ["monadthreecol", "max", "max", "max", "max", "max", "max", "max", "max"]
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        )
+    )
+
+keys.extend(keymaps.setUpVirtualDesktopSwitching(groups))
+
+
+# Set the general color scheme
 colorScheme = colors.Dracula
 
+
+# Define default themes for layouts
 layoutTheme = {
     "border_width": 1,
     "border_focus": colorScheme[8],
@@ -59,6 +84,8 @@ layoutTheme = {
     "margin": 12
 }
 
+
+# Define active layouts
 layouts = [
     layout.Max(**layoutTheme),
     layout.MonadThreeCol(
