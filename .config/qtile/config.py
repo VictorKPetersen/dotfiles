@@ -62,7 +62,7 @@ mouse = keymaps.setUpMouseMaps()
 groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+group_labels = [" ", " ", "󱓟 ", " ", " ", "󰣘 ", " ", "󱎃 ", " "]
 group_layouts = ["monadthreecol", "max", "max", "max", "max", "max", "max", "max", "max"]
 
 for i in range(len(group_names)):
@@ -111,12 +111,9 @@ layouts = [
     # layout.Columns(**layoutTheme, border_focus_stack=["#d75f5f", "#8f3d3d"]),
 ]
 
-widget_defaults = dict(
-    font="UbuntuMono Nerd Font",
-    fontsize=12,
-    padding=3,
-)
+widget_defaults = screeninfo.initWidgetDefaults()
 extension_defaults = widget_defaults.copy()
+
 
 screens = screeninfo.initScreens(colorScheme)
 
