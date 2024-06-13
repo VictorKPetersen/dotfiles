@@ -1,4 +1,4 @@
-from libqtile.config import Group, Key, KeyChord
+from libqtile.config import Key, KeyChord
 from libqtile.lazy import lazy
 from libqtile.config import Click, Drag
 
