@@ -47,7 +47,7 @@ def start_once():
 
 
 # Set the general color scheme
-colorScheme = colors.Draculav2
+colorScheme = colors.Custom
 
 
 # Get remaps for the keyboard from keymaps.py
