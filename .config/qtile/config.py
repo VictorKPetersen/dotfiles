@@ -35,8 +35,10 @@ from libqtile.config import Match, Group
 
 # config imports
 import keymaps
-import colors
 import screeninfo
+import options
+
+colorScheme = options.colorScheme
 
 
 # Hook that runs upon startup, calls the autostart.sh script
@@ -46,16 +48,12 @@ def start_once():
     subprocess.Popen([autostart])
 
 
-# Set the general color scheme
-colorScheme = colors.Custom
-
-
 # Get remaps for the keyboard from keymaps.py
-keys = keymaps.setUpKeyMaps()
+keys = keymaps.initKeymaps()
 
 
 # Get remaps for the mouse from keymaps.py
-mouse = keymaps.setUpMouseMaps()
+mouse = keymaps.initMouseMaps()
 
 
 # Set Up groups
@@ -115,7 +113,7 @@ widget_defaults = screeninfo.initWidgetDefaults()
 extension_defaults = widget_defaults.copy()
 
 
-screens = screeninfo.initScreens(colorScheme)
+screens = screeninfo.initScreens()
 
 
 dgroups_key_binder = None

@@ -5,12 +5,21 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 import subprocess
 
+# Import options to set general options for screen
+import options
 
-def initScreens(colorScheme):
+
+colorScheme = options.colorScheme
+
+
+def initScreens():
+    widgetList = initWidgets()
+    if not options.displayBattery:
+        del widgetList[14:15]
     screenList = [
         Screen(
             top=bar.Bar(
-                initWidgetsMainScreen(colorScheme),
+                widgetList,
                 size=22,
                 background=["#000000d0", colorScheme[0]+"a0"]
             ),
@@ -30,7 +39,7 @@ def initWidgetDefaults():
     return widget_defaults
 
 
-def initWidgets(colorScheme):
+def initWidgets():
     # Define powerline format
     powerline = {
         "decorations": [
@@ -137,16 +146,3 @@ def initWidgets(colorScheme):
     ]
 
     return widgetList
-
-
-def initWidgetsMainScreen(colorScheme):
-    widgetMain = initWidgets(colorScheme)
-    return widgetMain
-
-
-def initWidgetSecondaryScreen(colorScheme):
-    widgetSecondary = initWidgets(colorScheme)
-    # Uncomments below and specifiy widgets to be deleted
-    # Eg. systray
-    # del widgetSecondary[]
-    return widgetSecondary
