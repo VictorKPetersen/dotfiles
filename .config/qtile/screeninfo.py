@@ -106,7 +106,7 @@ def initWidgets():
             background=colorScheme[6],
             foreground=colorScheme[2],
             format="  | {down:6.2f}     {up:6.2f}",
-            interface="eno1",
+            interface=options.netInterface,
             **powerline
             ),
         widget.Clock(
