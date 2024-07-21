@@ -1,7 +1,8 @@
 #!/bin/bash
 #-- Autostart Programs --#
 nm-applet & # nm-applet systray network applet
-picom & #Launc picom compositor
+picom & # Launch picom compositor
+flameshot & # Launch flameshot screenshot applet
 
 #-- Set Wallpaper --#
 nitrogen --restore &
