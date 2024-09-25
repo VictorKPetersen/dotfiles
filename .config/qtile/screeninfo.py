@@ -51,7 +51,7 @@ def initWidgets():
     widgetList = [
         widget.Spacer(length=4),
         widget.Image(
-            filename="~/.config/qtile/Assets/archlinux-icon-crystal-128.svg",
+            filename="~/.config/qtile/Assets/archlinux-icon-crystal-128.png",
             scale="False",
             margin=1,
             ),
@@ -118,7 +118,7 @@ def initWidgets():
         widget.KeyboardLayout(
             background=colorScheme[0],
             foreground=colorScheme[2],
-            configured_keyboards=['dk'],
+            configured_keyboards=['us', 'dk'],
             fmt="  {}",
             ),
         widget.Volume(

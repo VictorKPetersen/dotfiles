@@ -4,8 +4,8 @@ palette = "dracula"
 show_always = true
 
 [character]
-error_symbol = "[](fg:bold red)"
-success_symbol = "[󰜴](fg:bold green)"
+error_symbol = "[ ](fg:bold red)"
+success_symbol = "[ 󰜴](fg:bold green)"
 
 [directory]
 style = "fg:bold italic purple"
