@@ -9,6 +9,7 @@ import options
 mod = options.modKey
 terminal = options.terminalCommand
 browser = options.browserCommand
+launcher = options.runLauncher
 
 
 def initKeymaps():
@@ -54,7 +55,7 @@ def initKeymaps():
         # Launch Various Programs
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
-        Key([mod], "r", lazy.spawn("dmenu_run"), desc="Spawn a command using a prompt widget"),
+        Key([mod], "r", lazy.spawn(launcher), desc="Spawn a command using a prompt widget"),
 
         # Various Usefull Commands
         Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill the focused window"),
