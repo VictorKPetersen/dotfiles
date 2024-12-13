@@ -14,6 +14,9 @@ PS1='[\u@\h \W]\$ '
 #Config git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Set colorscheme to pywal output
+(cat ~/.cache/wal/sequences &)
+
 # Init starship prompt
 eval "$(starship init bash)"
 
