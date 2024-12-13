@@ -6,3 +6,6 @@ picom & # Launch picom compositor
 #-- Set Wallpaper --#
 nitrogen --restore &
 
+#-- Opentabletdriver daemon --#
+systemctl --user start opentabletdriver.service --now
+
