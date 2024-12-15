@@ -2,7 +2,7 @@ colors.draw_bold_text_with_bright_colors = true
 
 #Window Opacity
 [window]
-opacity = 1
+opacity = 0.9
 
 #Ubuntu Mono Nerd Font
 [font]
