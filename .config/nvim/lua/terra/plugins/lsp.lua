@@ -69,8 +69,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-            }, {
-                { name = 'buffer' },
+                --{name = 'buffer'}, --Unsure why tf anybody would ever want buffer enabled
             })
         })
     end
