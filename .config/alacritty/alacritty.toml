@@ -2,7 +2,7 @@ colors.draw_bold_text_with_bright_colors = true
 
 #Window Opacity
 [window]
-opacity = 0.85
+opacity = 1
 
 #Ubuntu Mono Nerd Font
 [font]
@@ -27,4 +27,4 @@ style = "Regular"
 [general]
 
 #Dracula Color Scheme
-import = ["~/.config/alacritty/dracula.toml"]
+#import = ["~/.config/alacritty/dracula.toml"]
