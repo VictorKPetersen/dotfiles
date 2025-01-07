@@ -37,12 +37,6 @@ def initKeymaps():
         Key([mod, "control"], "plus", lazy.layout.grow(), desc="Grow window"),
         Key([mod, "control"], "minus", lazy.layout.shrink(), desc="Shrink window"),
 
-        KeyChord([mod], "p", [
-            Key([], "n", lazy.layout.normalize(), desc="Normalize windows"),
-            Key([], "r", lazy.layout.reset(), desc="Reset windows"),
-            Key([], "s", lazy.layout.swap_main(), desc="Swap to main pane")
-        ]),
-
         # Change between layouts
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
