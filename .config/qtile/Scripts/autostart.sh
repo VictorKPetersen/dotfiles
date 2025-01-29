@@ -13,7 +13,3 @@ wal -R
 #-- Autostart Programs --#
 nm-applet & # nm-applet systray network applet
 picom & # Launch picom compositor
-
-#-- Opentabletdriver daemon --#
-systemctl --user start opentabletdriver.service --now
-
