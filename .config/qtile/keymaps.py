@@ -55,6 +55,19 @@ def initKeymaps():
         Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill the focused window"),
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+        # Audio Control using WirePlumber
+        Key([], "XF86AudioMute",
+            lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+            desc="Mute/unmute volume"),
+
+        Key([], "XF86AudioLowerVolume",
+            lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+            desc="Lower volume by 5%"),
+
+        Key([], "XF86AudioRaiseVolume",
+            lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
+            desc="Raise volume by 5%"),
     ]
 
     return keyMaps
