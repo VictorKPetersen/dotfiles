@@ -13,3 +13,4 @@ wal -R
 #-- Autostart Programs --#
 nm-applet & # nm-applet systray network applet
 picom & # Launch picom compositor
+dunst & # Launch dunst notification daemon
