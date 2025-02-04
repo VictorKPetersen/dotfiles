@@ -24,9 +24,17 @@ def initKeymaps():
             lazy.layout.right(),
             desc="Move focus to right"),
 
-        Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-        Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-        Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+        Key([mod], "j",
+            lazy.layout.down(),
+            desc="Move focus down"),
+
+        Key([mod], "k",
+            lazy.layout.up(),
+            desc="Move focus up"),
+
+        Key([mod], "space",
+            lazy.layout.next(),
+            desc="Move window focus to other window"),
 
         # Move windows between left/right columns or move up/down in current stack.
         # Moving out of range in Columns layout will create new column.
