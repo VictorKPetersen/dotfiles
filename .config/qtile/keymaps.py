@@ -56,6 +56,8 @@ def initKeymaps():
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
+        Key([mod], "l", lazy.spawn("dunstctl close-all"), desc="Clear dunst popups"),
+
         # Audio Control using WirePlumber
         Key([], "XF86AudioMute",
             lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
