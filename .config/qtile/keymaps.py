@@ -10,16 +10,31 @@ mod = options.modKey
 terminal = options.terminalCommand
 browser = options.browserCommand
 launcher = options.runLauncher
+fileMan = options.fileManagerCommand
 
 
 def initKeymaps():
     keyMaps = [
         # Move focus between windows
-        Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-        Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-        Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-        Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-        Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+        Key([mod], "h",
+            lazy.layout.left(),
+            desc="Move focus to left"),
+
+        Key([mod], "l",
+            lazy.layout.right(),
+            desc="Move focus to right"),
+
+        Key([mod], "j",
+            lazy.layout.down(),
+            desc="Move focus down"),
+
+        Key([mod], "k",
+            lazy.layout.up(),
+            desc="Move focus up"),
+
+        Key([mod], "space",
+            lazy.layout.next(),
+            desc="Move window focus to other window"),
 
         # Move windows between left/right columns or move up/down in current stack.
         # Moving out of range in Columns layout will create new column.
@@ -41,20 +56,23 @@ def initKeymaps():
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
         # Toggle FullScreen Window
-        Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
+        Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
 
         # Toggle Floating Window
-        Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+        Key([mod, "control"], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
 
         # Launch Various Programs
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
         Key([mod], "r", lazy.spawn(launcher), desc="Spawn a command using a prompt widget"),
+        Key([mod], "f", lazy.spawn(fileMan), desc="Spawn configured filemanager"),
 
         # Various Usefull Commands
         Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill the focused window"),
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+        Key([mod], "l", lazy.spawn("dunstctl close-all"), desc="Clear dunst popups"),
 
         # Audio Control using WirePlumber
         Key([], "XF86AudioMute",
