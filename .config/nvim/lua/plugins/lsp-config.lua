@@ -24,9 +24,9 @@ return {
             lspconfig.lua_ls.setup({})
 
             -- Setup custom LSP keymaps
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Show documentation for whats under cursor
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {}) -- Go to definition for whats under cursor
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {}) -- Code actions for whats under cursor -- Code actions for whats under cursor
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Displays hover information about the symbol under the cursor"})
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Jumps to the definition of the symbol under the cursor"})
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Code action for the symbol under the cursor"})
         end,
     }
 }
