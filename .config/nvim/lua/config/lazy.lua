@@ -20,12 +20,12 @@ require("lazy").setup({
   },
 
   -- Configure any other settings here. See the documentation for more details.
-  install = { 
+  install = {
       missing = true, -- Install missing plugins on startup
 
       -- Colorscheme that will be used when installing plugins.
       -- Try to load one of these colorschemes when starting an installation during startup
-      colorscheme = { "habamax", }, 
+      colorscheme = { "habamax", },
   },
 
   -- Automatically check for plugin updates
