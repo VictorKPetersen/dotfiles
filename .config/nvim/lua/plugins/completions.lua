@@ -14,8 +14,8 @@ return {
                 preset = "default",
 
                 ["<C-Space>"] = { "accept", "fallback" },
-                ["<C-p>"] = { "select_prev", "fallback"},
-                ["<C-n>"] = { "select_next", "fallback"},
+                ["<C-p>"] = { "select_prev", "fallback" },
+                ["<C-n>"] = { "select_next", "fallback" },
             },
 
             appearance = {
@@ -35,8 +35,8 @@ return {
                     -- nvim-cmp style menu
                     draw = {
                         columns = {
-                            { "label", "label_description", gap = 2 },
-                            { "kind_icon", "kind", gap = 2 }
+                            { "label",     "label_description", gap = 2 },
+                            { "kind_icon", "kind",              gap = 2 }
                         },
 
                         treesitter = { "lsp" },
@@ -45,7 +45,7 @@ return {
             },
 
             -- Use friendly-snippets
-            snippets = { preset = "default"},
+            snippets = { preset = "default" },
 
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -56,8 +56,6 @@ return {
                     "snippets",
                     "buffer",
                 },
-                -- Disable cmdline completions
-                cmdline = {},
             },
         },
 

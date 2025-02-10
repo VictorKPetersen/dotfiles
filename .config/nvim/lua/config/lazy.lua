@@ -14,7 +14,7 @@ require("lazy").setup({
     },
 
     defaults = {
-        lazy = false, -- Do not lazy load by default
+        lazy = false,  -- Do not lazy load by default
         version = nil, -- Always use the latest git commit
         -- version = "*", -- Try installing the latest stable version for plugins that support semver
     },

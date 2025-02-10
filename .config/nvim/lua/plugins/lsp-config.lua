@@ -43,18 +43,20 @@ return {
             end
 
             -- Example calling setup directly for each lsp
-        -- config = function()
+            -- config = function()
             -- local capabilities = require('blink.cmp').get_lsp_capabilities()
             -- local lspconfig = require('lspconfig')
 
             -- lspconfig['lua_ls'].setup({ capabilities = capabilities })
-        -- end
+            -- end
 
             -- Setup custom LSP keymaps
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Displays hover information about the symbol under the cursor"})
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Jumps to the definition of the symbol under the cursor"})
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Code action for the symbol under the cursor"})
-
+            vim.keymap.set("n", "K", vim.lsp.buf.hover,
+                { desc = "Displays hover information about the symbol under the cursor" })
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition,
+                { desc = "Jumps to the definition of the symbol under the cursor" })
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
+                { desc = "Code action for the symbol under the cursor" })
         end
     }
 }
