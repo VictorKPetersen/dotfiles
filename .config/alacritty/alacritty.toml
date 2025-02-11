@@ -27,4 +27,4 @@ style = "Regular"
 [general]
 
 #Dracula Color Scheme
-#import = ["~/.config/alacritty/dracula.toml"]
+# import = ["~/.config/alacritty/dracula.toml"]
