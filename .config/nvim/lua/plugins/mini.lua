@@ -15,6 +15,7 @@ return {
 
     {
         "echasnovski/mini.files",
+        lazy = false,
 
         keys = {
             {
