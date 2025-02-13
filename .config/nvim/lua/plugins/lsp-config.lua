@@ -28,7 +28,19 @@ return {
         opts = {
             servers = {
                 lua_ls = {},
-                basedpyright = {},
+
+                basedpyright = {
+                    settings = {
+                        basedpyright = {
+                            disableOrganizeImports = true,
+                            analysis = {
+                                ignore = { "*", },
+                            },
+                        },
+                    },
+                },
+
+                ruff = {},
             },
         },
 
@@ -58,6 +70,7 @@ return {
                 { desc = "Jumps to the definition of the symbol under the cursor" })
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
                 { desc = "Code action for the symbol under the cursor" })
-        end
+        end,
+
     }
 }
