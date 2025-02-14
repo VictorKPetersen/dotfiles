@@ -1,6 +1,7 @@
 return {
     {
         "echasnovski/mini.icons",
+        lazy = true,
 
         opts = {
             style = "glyph",
@@ -18,14 +19,13 @@ return {
 
     {
         "echasnovski/mini.comment",
+        event = { "BufNewFile", "BufReadPost", "BufWritePost", },
 
         opts = {},
     },
 
     {
         "echasnovski/mini.files",
-        lazy = false,
-
         keys = {
             {
                 "<leader>fm",

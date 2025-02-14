@@ -1,9 +1,9 @@
 return {
     "nvim-treesitter/nvim-treesitter",
 
-    -- Run TSUpdate on start.
     -- Ensures latests version of parsers
     build = ":TSUpdate",
+    event = { "BufNewFile", "BufReadPost", "BufWritePost", "VeryLazy", },
 
     opts = {
         highlight = { enable = true },
