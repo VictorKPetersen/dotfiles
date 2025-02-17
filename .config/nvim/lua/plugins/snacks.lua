@@ -73,7 +73,6 @@ return {
         { "<leader>sw", function() Snacks.picker.grep_word() end,       desc = "Grep selection or word", mode = { "n", "v", } },
         { "<leader>sb", function() Snacks.picker.buffers() end,         desc = "Search buffers" },
         { "<leader>sm", function() Snacks.picker.marks() end,           desc = "Search Marks" },
-        { "<leader>uC", function() Snacks.picker.colorschemes() end,    desc = "Colorschemes" },
 
         -- Git
         { "<leader>gb", function() Snacks.picker.git_branches() end,    desc = "Git Branches" },

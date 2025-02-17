@@ -1,25 +1,32 @@
 return {
-    "navarasu/onedark.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {
-        style = "deep",     -- Default style. Choose between "dark", "darker", "cool", "deep", "warm", "warmer", "light"
-        transparent = true,
-        term_colors = true, -- Change terminal colors to selected theme
+    {
+        "navarasu/onedark.nvim",
+        opts = {
+            style = "deep",     -- Default style. Choose between "dark", "darker", "cool", "deep", "warm", "warmer", "light"
+            transparent = true,
+            term_colors = true, -- Change terminal colors to selected theme
 
-        -- Options are italic, bold, underline, none
-        -- Configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
-        code_style = {
-            comments = 'italic',
-            keywords = 'bold',
-            functions = 'italic,bold',
-            strings = 'none',
-            variables = 'none'
+            -- Options are italic, bold, underline, none
+            -- Configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+            code_style = {
+                comments = 'italic',
+                keywords = 'bold',
+                functions = 'italic,bold',
+                strings = 'none',
+                variables = 'none'
+            },
+        },
+
+        init = function()
+            require("onedark").load()
+        end,
+    },
+    {
+        "Mofiqul/dracula.nvim",
+        lazy = true,
+        opts = {
+            transparent_bg = true,
+            italic_comment = true,
         },
     },
-
-    config = function(_, opts)
-        require("onedark").setup(opts)
-        require("onedark").load()
-    end,
 }
