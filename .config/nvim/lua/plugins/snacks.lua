@@ -77,6 +77,7 @@ return {
         -- Git
         { "<leader>gb", function() Snacks.picker.git_branches() end,    desc = "Git Branches" },
 
+
         -- LSP
         { "gd",         function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end,     desc = "LSP Symbols" },

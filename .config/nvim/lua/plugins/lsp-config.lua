@@ -50,7 +50,6 @@ return {
             },
         },
 
-
         config = function(_, opts)
             local lspconfig = require('lspconfig')
             -- Passing capabilities to each LSP in opts.servers
@@ -70,10 +69,9 @@ return {
             -- end
 
             -- Setup custom LSP keymaps
+            -- The rest can be found in the snacks picker
             vim.keymap.set("n", "K", vim.lsp.buf.hover,
                 { desc = "Displays hover information about the symbol under the cursor" })
-            -- vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition,
-            --     { desc = "Jumps to the definition of the symbol under the cursor" })
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
                 { desc = "Code action for the symbol under the cursor" })
 
