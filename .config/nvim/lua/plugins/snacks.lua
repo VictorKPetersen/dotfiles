@@ -65,14 +65,26 @@ return {
 
     keys = {
         -- Files
-        { "<leader>ff", function() Snacks.picker.files() end,           desc = "Find files" },
-        { "<leader>fr", function() Snacks.picker.recent() end,          desc = "Find recent" },
+        { "<leader>ff", function() Snacks.picker.files() end,     desc = "Find files" },
+        { "<leader>fr", function() Snacks.picker.recent() end,    desc = "Find recent" },
 
         -- utility
-        { "<leader>sg", function() Snacks.picker.grep() end,            desc = "Grep in files" },
-        { "<leader>sw", function() Snacks.picker.grep_word() end,       desc = "Grep selection or word", mode = { "n", "v", } },
-        { "<leader>sb", function() Snacks.picker.buffers() end,         desc = "Search buffers" },
-        { "<leader>sm", function() Snacks.picker.marks() end,           desc = "Search Marks" },
+        { "<leader>sg", function() Snacks.picker.grep() end,      desc = "Grep in files" },
+        { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Grep selection or word", mode = { "n", "v", } },
+        { "<leader>sb", function() Snacks.picker.buffers() end,   desc = "Search buffers" },
+        { "<leader>sm", function() Snacks.picker.marks() end,     desc = "Search Marks" },
+        {
+            "<leader>cU",
+            function()
+                local colors = require("plugins.colorscheme")
+                for _, color in ipairs(colors) do
+                    require("lazy").load({ plugins = { color.name } })
+                end
+
+                Snacks.picker.colorschemes()
+            end,
+            desc = "Colorschemes"
+        },
 
         -- Git
         { "<leader>gb", function() Snacks.picker.git_branches() end,    desc = "Git Branches" },

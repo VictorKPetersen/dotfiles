@@ -122,7 +122,6 @@ return {
             },
         }
 
-
         vim.api.nvim_create_autocmd("ColorScheme", {
             callback = function()
                 opts.options.theme = themeSetup()
@@ -130,7 +129,6 @@ return {
             end,
             desc = "Autoreload lualine after :colorscheme",
         })
-
         return opts
     end,
 

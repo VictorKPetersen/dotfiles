@@ -1,6 +1,8 @@
 return {
     {
         "navarasu/onedark.nvim",
+        lazy = true,
+        name = "onedark",
         opts = {
             style = "deep",     -- Default style. Choose between "dark", "darker", "cool", "deep", "warm", "warmer", "light"
             transparent = true,
@@ -16,14 +18,11 @@ return {
                 variables = 'none'
             },
         },
-
-        init = function()
-            require("onedark").load()
-        end,
     },
     {
         "Mofiqul/dracula.nvim",
         lazy = true,
+        name = "dracula",
         opts = {
             transparent_bg = true,
             italic_comment = true,
