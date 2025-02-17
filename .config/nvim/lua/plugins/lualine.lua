@@ -4,17 +4,16 @@ return {
 
     opts = function()
         -- Get colors from onedark scheme
-        local c = require("onedark.colors")
         local colors = {
-            bg = c.bg0,
-            fg = c.fg,
-            red = c.red,
-            green = c.green,
-            yellow = c.yellow,
-            blue = c.blue,
-            purple = c.purple,
-            cyan = c.cyan,
-            gray = c.grey
+            bg = vim.g.terminal_color_0,
+            red = vim.g.terminal_color_1,
+            green = vim.g.terminal_color_2,
+            yellow = vim.g.terminal_color_3,
+            blue = vim.g.terminal_color_4,
+            purple = vim.g.terminal_color_5,
+            cyan = vim.g.terminal_color_6,
+            white = vim.g.terminal_color_7,
+            fg = vim.g.terminal_color_8
         }
 
         local modeColors = {
@@ -47,7 +46,7 @@ return {
                 lualine_b = {
                     {
                         "mode",
-                        color = function() return { fg = modeColors[vim.fn.mode()], bg = colors.grey, gui = "bold" } end,
+                        color = function() return { fg = modeColors[vim.fn.mode()], gui = "bold" } end,
                     },
                 },
 
@@ -55,19 +54,19 @@ return {
                     {
                         "filename",
                         path = 1,
-                        color = { bg = colors.grey, gui = "bold" },
+                        color = { gui = "bold" },
                     },
 
                     {
                         "filetype",
                         icon_only = true,
-                        color = { bg = colors.grey, gui = "bold" },
+                        color = { gui = "bold" },
                     },
 
                     {
                         "diagnostics",
                         always_visible = true,
-                        color = { bg = colors.grey, gui = "bold" },
+                        color = { gui = "bold" },
                     },
                 },
 
@@ -75,14 +74,14 @@ return {
                     {
                         "encoding",
                         fmt = string.upper,
-                        color = { fg = colors.green, bg = colors.grey, gui = "bold" },
+                        color = { fg = colors.green, gui = "bold" },
                     },
 
                     {
                         "fileformat",
                         icons_enabled = false,
                         fmt = string.upper,
-                        color = { fg = colors.green, bg = colors.grey, gui = "bold" },
+                        color = { fg = colors.green, gui = "bold" },
                     },
                 },
 
@@ -90,14 +89,14 @@ return {
                     {
                         "branch",
                         icon = " ",
-                        color = { fg = colors.purple, bg = colors.grey, gui = "bold" },
+                        color = { fg = colors.purple, gui = "bold" },
                         separator = "",
                     },
 
                     {
                         "diff",
                         symbols = { added = " ", modified = " ", removed = " " },
-                        color = { bg = colors.grey, gui = "bold" },
+                        color = { gui = "bold" },
                         separator = "",
                     },
                 },
