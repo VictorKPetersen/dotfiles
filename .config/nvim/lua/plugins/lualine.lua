@@ -1,72 +1,90 @@
+local function colorSetup()
+    local colorTable = {
+        black = vim.g.terminal_color_0,
+        red = vim.g.terminal_color_1,
+        green = vim.g.terminal_color_2,
+        yellow = vim.g.terminal_color_3,
+        blue = vim.g.terminal_color_4,
+        magenta = vim.g.terminal_color_5,
+        cyan = vim.g.terminal_color_6,
+        white = vim.g.terminal_color_7,
+        black_bright = vim.g.terminal_color_8
+    }
+
+    return colorTable
+end
+
+
+local function themeSetup()
+    local colors = colorSetup()
+    local themeTable = {
+        normal = {
+            a = { bg = colors.black, fg = colors.red, gui = "bold" },
+            b = { bg = colors.black, fg = colors.white, gui = "bold" },
+            c = { bg = colors.black, fg = colors.white, gui = "bold" },
+            x = { bg = colors.black, fg = colors.white, gui = "bold" },
+            y = { bg = colors.black, fg = colors.white, gui = "bold" },
+            z = { bg = colors.black, fg = colors.white, gui = "bold" },
+        },
+
+        insert = {
+            a = { bg = colors.black, fg = colors.green, gui = "bold" },
+        },
+
+        visual = {
+            a = { bg = colors.black, fg = colors.blue, gui = "bold" },
+        },
+
+        replace = {
+            a = { bg = colors.black, fg = colors.magenta, gui = "bold" },
+        },
+
+        command = {
+            a = { bg = colors.black, fg = colors.yellow, gui = "bold" },
+        },
+
+        inactive = {
+            a = { bg = colors.black, fg = colors.black_bright, gui = "bold" },
+        },
+    }
+
+    return themeTable
+end
+
+
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "echasnovski/mini.icons", },
 
     opts = function()
-        -- Get colors from onedark scheme
-        local colors = {
-            bg = vim.g.terminal_color_0,
-            red = vim.g.terminal_color_1,
-            green = vim.g.terminal_color_2,
-            yellow = vim.g.terminal_color_3,
-            blue = vim.g.terminal_color_4,
-            purple = vim.g.terminal_color_5,
-            cyan = vim.g.terminal_color_6,
-            white = vim.g.terminal_color_7,
-            fg = vim.g.terminal_color_8
-        }
-
-        local modeColors = {
-            n = colors.red,
-            i = colors.green,
-            v = colors.blue,
-            [''] = colors.blue,
-            V = colors.blue,
-            c = colors.magenta,
-            no = colors.red,
-            s = colors.orange,
-            S = colors.orange,
-            [''] = colors.orange,
-            ic = colors.yellow,
-            R = colors.violet,
-            Rv = colors.violet,
-            cv = colors.red,
-            ce = colors.red,
-            r = colors.cyan,
-            rm = colors.cyan,
-            ['r?'] = colors.cyan,
-            ['!'] = colors.red,
-            t = colors.red,
-        }
+        local colors = colorSetup()
 
         local opts = {
+            options = {
+                theme = themeSetup(),
+            },
+
             sections = {
-                lualine_a = {},
+                lualine_a = {
+                    { "mode", },
+                },
 
                 lualine_b = {
                     {
-                        "mode",
-                        color = function() return { fg = modeColors[vim.fn.mode()], gui = "bold" } end,
-                    },
-                },
-
-                lualine_c = {
-                    {
                         "filename",
                         path = 1,
-                        color = { gui = "bold" },
                     },
 
                     {
                         "filetype",
                         icon_only = true,
-                        color = { gui = "bold" },
                     },
+                },
 
+                lualine_c = {
                     {
                         "diagnostics",
                         always_visible = true,
-                        color = { gui = "bold" },
                     },
                 },
 
@@ -74,14 +92,14 @@ return {
                     {
                         "encoding",
                         fmt = string.upper,
-                        color = { fg = colors.green, gui = "bold" },
+                        color = { fg = colors.green, },
                     },
 
                     {
                         "fileformat",
                         icons_enabled = false,
                         fmt = string.upper,
-                        color = { fg = colors.green, gui = "bold" },
+                        color = { fg = colors.green, },
                     },
                 },
 
@@ -89,14 +107,13 @@ return {
                     {
                         "branch",
                         icon = " ",
-                        color = { fg = colors.purple, gui = "bold" },
                         separator = "",
+                        color = { fg = colors.magenta, },
                     },
 
                     {
                         "diff",
                         symbols = { added = " ", modified = " ", removed = " " },
-                        color = { gui = "bold" },
                         separator = "",
                     },
                 },
@@ -104,6 +121,15 @@ return {
                 lualine_z = {},
             },
         }
+
+
+        vim.api.nvim_create_autocmd("ColorScheme", {
+            callback = function()
+                opts.options.theme = themeSetup()
+                require("lualine").setup(opts)
+            end,
+            desc = "Autoreload lualine after :colorscheme",
+        })
 
         return opts
     end,
