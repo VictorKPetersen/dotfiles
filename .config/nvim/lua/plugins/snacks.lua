@@ -58,6 +58,7 @@ return {
                 { section = "keys", gap = 1, padding = 1, },
                 { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
                 { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+                { pane = 2, section = "startup" },
             },
         },
 
@@ -81,7 +82,17 @@ return {
                     require("lazy").load({ plugins = { color.name } })
                 end
 
-                Snacks.picker.colorschemes()
+                Snacks.picker.colorschemes({
+                    confirm = function(picker, item)
+                        picker:close()
+                        if item then
+                            picker.preview.state.colorscheme = nil
+                            vim.schedule(function()
+                                vim.cmd("ChangeColor " .. item.text)
+                            end)
+                        end
+                    end,
+                })
             end,
             desc = "Colorschemes"
         },

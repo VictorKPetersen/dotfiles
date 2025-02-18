@@ -1,4 +1,4 @@
-return {
+local plugins = {
     {
         "navarasu/onedark.nvim",
         lazy = true,
@@ -28,4 +28,52 @@ return {
             italic_comment = true,
         },
     },
+    {
+        "catppuccin/nvim",
+        lazy = true,
+        name = "catppuccin",
+        opts = {
+            transparent_background = true,
+            term_colors = true,
+        },
+    },
+    {
+        "EdenEast/nightfox.nvim",
+        lazy = true,
+        name = "nightfox",
+        opts = {},
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = true,
+        name = "tokyonight",
+        opts = {},
+    },
 }
+
+-- Custom ChangeColor command, sets the name of the colorscheme in shada
+vim.api.nvim_create_user_command("ChangeColor", function(opts)
+    vim.cmd("colorscheme " .. opts.args)
+    vim.notify("Setting colorscheme to " .. opts.args)
+    vim.g.COLORSCHEME = opts.args
+    vim.cmd("wshada")
+end, { nargs = 1 })
+
+
+-- Load last selected colorscheme from shada. Runs on plugin load
+local function loadColorScheme()
+    vim.cmd("rshada") -- Read shada file
+    local color = vim.g.COLORSCHEME
+    if color ~= nil and color ~= "" then
+        vim.schedule(function()
+            vim.cmd("ChangeColor " .. color)
+        end)
+    else
+        vim.schedule(function()
+            vim.cmd("ChangeColor onedark")
+        end)
+    end
+end
+
+loadColorScheme()
+return plugins
