@@ -22,6 +22,10 @@ return {
         },
     },
 
+    {
+        "nvim-java/nvim-java",
+    },
+
     -- nvim-lspconfig for general lsp configuation
     {
         "neovim/nvim-lspconfig",
@@ -44,6 +48,8 @@ return {
                         },
                     },
                 },
+
+                jdtls = {},
 
                 gopls = { -- LazyVim gopls config
                     settings = {
