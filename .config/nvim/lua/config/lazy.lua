@@ -11,6 +11,7 @@ require("lazy").setup({
     spec = {
         -- Import your plugins
         { import = "plugins" },
+        { import = "plugins.lsp" },
     },
 
     defaults = {
@@ -25,7 +26,7 @@ require("lazy").setup({
 
         -- Colorscheme that will be used when installing plugins.
         -- Try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "habamax", },
+        colorscheme = { "onedark", },
     },
 
     -- Automatically check for plugin updates
