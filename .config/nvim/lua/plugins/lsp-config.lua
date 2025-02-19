@@ -46,6 +46,13 @@ return {
                 },
 
                 ruff = {},
+                gopls = {
+                    settings = {
+                        gopls = {
+                            gofumpt = true,
+                        },
+                    },
+                },
 
             },
         },

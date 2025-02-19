@@ -9,7 +9,7 @@ return {
             -- Bind Conform.format()
             "<leader>gf",
             function()
-                require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+                require("conform").format({timeout_ms = 3000})
             end,
             mode = { "n", "v", },
             desc = "Format buffer",
@@ -19,6 +19,7 @@ return {
     opts = {
         -- Define formatters
         formatters_by_ft = {
+            go = { "gofumpt", },
         },
 
         -- Set defualts
