@@ -45,7 +45,6 @@ return {
                     },
                 },
 
-                ruff = {},
                 gopls = {
                     settings = {
                         gopls = {
