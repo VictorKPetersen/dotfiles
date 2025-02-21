@@ -24,3 +24,6 @@ vim.o.smartcase = true
 -- Disable Backup To Prent Clogging of Filesystem
 vim.o.backup = false
 vim.o.writebackup = false
+
+-- Scrolloff
+vim.o.scrolloff = 3
