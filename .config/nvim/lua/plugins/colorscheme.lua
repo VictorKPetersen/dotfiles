@@ -49,6 +49,12 @@ local plugins = {
         name = "tokyonight",
         opts = {},
     },
+    {
+        "metalelf0/base16-black-metal-scheme",
+        lazy = true,
+        name = "black-metal",
+        opts = {},
+    },
 }
 
 -- Custom ChangeColor command, sets the name of the colorscheme in shada
