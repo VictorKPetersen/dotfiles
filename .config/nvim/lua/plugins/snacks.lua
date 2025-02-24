@@ -83,6 +83,7 @@ return {
                 end
 
                 Snacks.picker.colorschemes({
+                    preview = "false",
                     confirm = function(picker, item)
                         picker:close()
                         if item then
