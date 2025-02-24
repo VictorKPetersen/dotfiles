@@ -3,7 +3,7 @@ return {
 
     -- Ensures latests version of parsers
     build = ":TSUpdate",
-    event = { "BufNewFile", "BufReadPost", "BufWritePost", "VeryLazy", },
+    event = { "BufNewFile", "BufReadPost", "BufWritePost", },
 
     opts = {
         highlight = { enable = true },
