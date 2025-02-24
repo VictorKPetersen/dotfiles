@@ -1,14 +1,7 @@
 #!/bin/bash
 
 #-- Set Wallpaper --#
-# nitrogen --restore &
-
-#-- Set colorscheme with pywal --#
-#-- Do not set wallpaper mode --#
-# wal -R -n
-
-#-- Set wallpaper mode --#
-wal -R
+nitrogen --restore &
 
 #-- Autostart Programs --#
 nm-applet & # nm-applet systray network applet
