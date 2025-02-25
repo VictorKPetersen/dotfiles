@@ -26,7 +26,7 @@ require("lazy").setup({
 
         -- Colorscheme that will be used when installing plugins.
         -- Try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "onedark", },
+        colorscheme = { "default", },
     },
 
     -- Automatically check for plugin updates

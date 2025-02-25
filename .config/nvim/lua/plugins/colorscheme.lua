@@ -1,7 +1,6 @@
-local plugins = {
+return {
     {
         "Mofiqul/dracula.nvim",
-        lazy = true,
         name = "dracula",
         opts = {
             italic_comment = true,
@@ -28,5 +27,3 @@ local plugins = {
         opts = {},
     },
 }
-
-return plugins
