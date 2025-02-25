@@ -2,6 +2,7 @@ return {
     {
         "Mofiqul/dracula.nvim",
         name = "dracula",
+        lazy = true,
         opts = {
             italic_comment = true,
         },
@@ -25,5 +26,15 @@ return {
         lazy = true,
         name = "tokyonight",
         opts = {},
+    },
+    {
+        "zenbones-theme/zenbones.nvim",
+        name = "zenbones",
+        lazy = true,
+        opts = {},
+
+        config = function()
+            vim.g.zenbones = { solid_line_nr = true }
+        end
     },
 }
