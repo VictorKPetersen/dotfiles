@@ -65,6 +65,7 @@ nnoremap <C-h> <c-w>h
 nnoremap <C-l> <c-w>l
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
+map <leader>q <Action>(CloseActiveTab)
 
 
 " Previous file
@@ -81,6 +82,7 @@ nnoremap <leader>fm :NERDTree<cr>
 
 " Terminal
 :map <leader>tt <Action>(ActivateTerminalToolWindow)
+
 
 " Find stuff
 " Requires Fuzzier to work https://github.com/MituuZ/fuzzier

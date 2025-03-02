@@ -133,6 +133,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="dk.sdu.mmmi.cbse.main.Main"),
+        Match(wm_class="dk.vkp.cbse.engine.App"),
     ]
 )
 auto_fullscreen = True
