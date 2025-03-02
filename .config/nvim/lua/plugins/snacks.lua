@@ -104,6 +104,7 @@ return {
 
         -- LSP
         { "gd",         function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+        { "gD",         function() Snacks.picker.lsp_declarations() end, desc = "Goto Declarations" },
         { "gr",         function() Snacks.picker.lsp_references() end,  nowait = true,           desc = "References" },
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end,     desc = "LSP Symbols" },
     },
