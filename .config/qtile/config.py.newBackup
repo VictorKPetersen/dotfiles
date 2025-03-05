@@ -29,16 +29,13 @@ import os
 import subprocess
 
 # qtile imports
-from libqtile import layout, hook
-from libqtile.config import Match, Group
+from libqtile import bar, layout, widget, hook
+from libqtile.config import Match, Screen, Group
 
 
 # config imports
 import keymaps
-import screeninfo
-import options
-
-colorScheme = options.colorScheme
+import colors
 
 
 # Hook that runs upon startup, calls the autostart.sh script
@@ -49,18 +46,18 @@ def start_once():
 
 
 # Get remaps for the keyboard from keymaps.py
-keys = keymaps.initKeymaps()
+keys = keymaps.setUpKeyMaps()
 
 
 # Get remaps for the mouse from keymaps.py
-mouse = keymaps.initMouseMaps()
+mouse = keymaps.setUpMouseMaps()
 
 
 # Set Up groups
 groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-group_labels = [" ", " ", "󱓟 ", " ", " ", "󰣘 ", " ", "󱎃 ", " "]
+group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 group_layouts = ["monadthreecol", "max", "max", "max", "max", "max", "max", "max", "max"]
 
 for i in range(len(group_names)):
@@ -74,6 +71,10 @@ for i in range(len(group_names)):
 
 # Append the keymaps for switching between different window groups
 keys.extend(keymaps.setUpVirtualDesktopSwitching(groups))
+
+
+# Set the general color scheme
+colorScheme = colors.Dracula
 
 
 # Define default themes for layouts
@@ -109,11 +110,41 @@ layouts = [
     # layout.Columns(**layoutTheme, border_focus_stack=["#d75f5f", "#8f3d3d"]),
 ]
 
-widget_defaults = screeninfo.initWidgetDefaults()
+widget_defaults = dict(
+    font="UbuntuMono Nerd Font",
+    fontsize=12,
+    padding=3,
+)
 extension_defaults = widget_defaults.copy()
 
-
-screens = screeninfo.initScreens()
+screens = [
+    Screen(
+        top=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.TextBox("Terra Config", name="Terra"),
+                widget.Systray(),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+            ],
+            24,
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
+        # By default we handle these events delayed to already improve performance, however your system might still be struggling
+        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
+        # x11_drag_polling_rate = 60,
+    ),
+]
 
 
 dgroups_key_binder = None
@@ -132,9 +163,6 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        Match(wm_class="dk.sdu.mmmi.cbse.main.Main"),
-        Match(wm_class="dk.vkp.cbse.engine.App"),
-        Match(wm_class="Emerald Edgers"),
     ]
 )
 auto_fullscreen = True
