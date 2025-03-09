@@ -21,6 +21,7 @@ return {
         formatters_by_ft = {
             go = { "gofumpt", },
             python = { "ruff_fix", "ruff_format", "ruff_organize_imports", },
+            java = { "google-java-format" ,},
         },
 
         -- Set defualts
