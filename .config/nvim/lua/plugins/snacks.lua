@@ -65,6 +65,7 @@ return {
     },
 
     keys = {
+        { "<leader>db", function() Snacks.dashboard() end, desc = "Open dashboard"},
         -- Files
         { "<leader>ff", function() Snacks.picker.files() end,     desc = "Find files" },
         { "<leader>fr", function() Snacks.picker.recent() end,    desc = "Find recent" },
