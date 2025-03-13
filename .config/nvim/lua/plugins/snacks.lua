@@ -37,6 +37,10 @@ return {
             },
         },
 
+        explorer = {
+            enabled = true,
+        },
+
         dashboard = {
             enabled = true,
 
@@ -65,7 +69,6 @@ return {
     },
 
     keys = {
-        { "<leader>db", function() Snacks.dashboard() end, desc = "Open dashboard"},
         -- Files
         { "<leader>ff", function() Snacks.picker.files() end,     desc = "Find files" },
         { "<leader>fr", function() Snacks.picker.recent() end,    desc = "Find recent" },
@@ -108,5 +111,9 @@ return {
         { "gD",         function() Snacks.picker.lsp_declarations() end, desc = "Goto Declarations" },
         { "gr",         function() Snacks.picker.lsp_references() end,  nowait = true,           desc = "References" },
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end,     desc = "LSP Symbols" },
+
+        -- Other snakcs
+        { "<leader>db", function() Snacks.dashboard() end, desc = "Open dashboard" },
+        { "<leader>tt", function() Snacks.explorer() end, desc = "Open Explorer" }
     },
 }
