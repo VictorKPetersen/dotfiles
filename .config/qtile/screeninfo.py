@@ -21,7 +21,7 @@ def initScreens():
             top=bar.Bar(
                 widgetList,
                 size=22,
-                background=["#000000d0", colorScheme[0]+"a0"]
+                background=[colorScheme[0]]
             ),
         ),
     ]

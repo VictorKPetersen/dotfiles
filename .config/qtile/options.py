@@ -2,8 +2,8 @@ import colors
 
 colorScheme = colors.Custom
 
-displayBattery = False
-netInterface = "eno1"
+displayBattery = True
+netInterface = "wlp1s0"
 modKey = "mod4"
 terminalCommand = "alacritty"
 browserCommand = "brave"

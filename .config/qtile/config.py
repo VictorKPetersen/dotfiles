@@ -79,9 +79,9 @@ keys.extend(keymaps.setUpVirtualDesktopSwitching(groups))
 # Define default themes for layouts
 layoutTheme = {
     "border_width": 1,
-    "border_focus": colorScheme[8],
+    "border_focus": colorScheme[2],
     "border_normal": colorScheme[0],
-    "margin": 12
+    "margin": 0
 }
 
 
@@ -133,7 +133,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="dk.sdu.mmmi.cbse.main.Main"),
-        Match(wm_class="dk.vkp.cbse.engine.App"),
+        Match(wm_class="dk.sdu.vkp.main.Game"),
         Match(wm_class="Emerald Edgers"),
     ]
 )
