@@ -1,4 +1,5 @@
 from libqtile import bar
+import libqtile
 from libqtile.config import Screen
 
 from qtile_extras import widget
@@ -50,7 +51,7 @@ def initWidgets():
     # Define widget list
     widgetList = [
         widget.Spacer(length=4),
-        widget.Image(
+        libqtile.widget.Image(
             filename="~/.config/qtile/Assets/archlinux-icon-crystal-128.png",
             scale="False",
             margin=1,
