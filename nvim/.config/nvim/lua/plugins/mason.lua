@@ -1,5 +1,4 @@
 return {
-    -- Mason for installing & managing LSP
     {
         "williamboman/mason.nvim",
         cmd = "Mason",
@@ -10,7 +9,6 @@ return {
         opts = {},
     },
 
-    -- Mason-lspconfig for bridring the gap, and ensuring certain servers are installed
     {
         "williamboman/mason-lspconfig.nvim",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
@@ -19,6 +17,15 @@ return {
             ensure_installed = {
                 "lua_ls",
             },
+        },
+    },
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile", },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            "saghen/blink.cmp",
         },
     },
 }

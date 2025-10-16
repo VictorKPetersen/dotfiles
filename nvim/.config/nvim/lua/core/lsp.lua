@@ -1,7 +1,3 @@
-local color = require("util.color")
-color.setup()
-
-
 local servers = {
     "basedpyright",
     "lua_ls",
@@ -10,4 +6,4 @@ local servers = {
 
 vim.lsp.enable(servers)
 
-return {}
+vim.diagnostic.config({ virtual_text = true })

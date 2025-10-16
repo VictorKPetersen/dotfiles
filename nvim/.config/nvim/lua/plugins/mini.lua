@@ -1,6 +1,6 @@
 return {
     {
-        "echasnovski/mini.icons",
+        "nvim-mini/mini.icons",
         lazy = true,
 
         opts = {
@@ -18,14 +18,21 @@ return {
     },
 
     {
-        "echasnovski/mini.comment",
+        "nvim-mini/mini.comment",
         event = { "BufNewFile", "BufReadPost", "BufWritePost", },
 
         opts = {},
     },
 
     {
-        "echasnovski/mini.files",
+        "nvim-mini/mini.ai",
+        event = { "BufNewFile", "BufReadPost", "BufWritePost", },
+
+        opts = {},
+    },
+
+    {
+        "nvim-mini/mini.files",
         keys = {
             {
                 "<leader>fm",
@@ -48,7 +55,5 @@ return {
                 width_preview = 30,
             },
         },
-
-
     },
 }

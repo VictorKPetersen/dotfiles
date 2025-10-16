@@ -1,7 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
 
-    -- Ensures latests version of parsers
     build = ":TSUpdate",
     lazy = false,
     event = { "BufNewFile", "BufReadPost", "BufWritePost", },
@@ -14,6 +13,7 @@ return {
             "c",
             "cpp",
             "css",
+            "html",
             "comment",
             "html",
             "java",

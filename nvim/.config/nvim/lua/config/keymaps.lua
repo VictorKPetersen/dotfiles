@@ -1,4 +1,4 @@
--- Set the mapleader to space
+-- Space as the leader key (The only way)
 vim.g.mapleader = " "
 vim.g.localmapleader = " "
 
