@@ -1,0 +1,53 @@
+colors.draw_bold_text_with_bright_colors = true
+
+#Window Opacity
+# [window]
+# opacity = 0.9
+
+#Ubuntu Mono Nerd Font
+[font]
+size = 14.0
+
+[font.bold]
+family = "UbuntuMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "UbuntuMono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "UbuntuMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+style = "Regular"
+
+[colors.bright]
+black = "#2B2F46"
+red = "#FF4821"
+green = "#58DB9E"
+yellow = "#F6A100"
+blue = "#00B4E0"
+magenta = "#B3A1E6"
+cyan = "#00B4E0"
+white = "#B3B692"
+
+[colors.cursor]
+cursor = "#EDF2C2"
+text = "#0E101A"
+
+[colors.normal]
+black = "#0E101A"
+blue = "#00A3CB"
+cyan = "#00A3CB"
+green = "#5DCD97"
+magenta = "#795CCC"
+red = "#E03600"
+white = "#EBEFC0"
+yellow = "#E39500"
+
+[colors.primary]
+background = "#000000"
+foreground = "#A0A0A0"
