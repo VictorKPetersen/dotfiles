@@ -39,14 +39,14 @@ return {
                     draw = {
                         columns = {
                             { "label",     "label_description", gap = 2 },
-                            { "kind_icon", "kind", "source_name", gap = 2 }
+                            { "kind_icon", "kind",              "source_name", gap = 2 }
                         },
                         treesitter = { "lsp" },
                     },
                 },
 
                 documentation = {
-					auto_show = true,
+                    auto_show = true,
                     auto_show_delay_ms = 200,
                     treesitter_highlighting = true,
                     window = { border = "rounded" },
@@ -66,7 +66,7 @@ return {
 
             providers = {
                 lsp = {
-                    min_keyword_length = 2,
+                    min_keyword_length = 1,
                     score_offset = 0,
                 },
                 path = {
