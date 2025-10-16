@@ -1,0 +1,16 @@
+include autostart.conf
+include keymaps.conf
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# Set no window borders(Decorations)
+default_border none
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
