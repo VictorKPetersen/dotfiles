@@ -1,4 +1,3 @@
-require("config.color")
 require("core.lsp")
 require("config.options")
 require("config.keymaps")

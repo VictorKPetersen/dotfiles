@@ -25,29 +25,29 @@ family = "UbuntuMono Nerd Font"
 style = "Regular"
 
 [colors.bright]
-black = "#2B2F46"
-red = "#FF4821"
-green = "#58DB9E"
-yellow = "#F6A100"
-blue = "#00B4E0"
-magenta = "#B3A1E6"
-cyan = "#00B4E0"
-white = "#B3B692"
-
-[colors.cursor]
-cursor = "#EDF2C2"
-text = "#0E101A"
+black = "#5f8787"
+blue = "#aaaaaa"
+cyan = "#999999"
+green = "#a06666"
+magenta = "#888888"
+red = "#aaaaaa"
+white = "#444444"
+yellow = "#dd9999"
 
 [colors.normal]
-black = "#0E101A"
-blue = "#00A3CB"
-cyan = "#00A3CB"
-green = "#5DCD97"
-magenta = "#795CCC"
-red = "#E03600"
-white = "#EBEFC0"
-yellow = "#E39500"
+black = "#000000"
+blue = "#121212"
+cyan = "#222222"
+green = "#333333"
+magenta = "#999999"
+red = "#c1c1c1"
+white = "#999999"
+yellow = "#c1c1c1"
+
+[colors.cursor]
+cursor = "#c1c1c1"
+text = "#dd9999"
 
 [colors.primary]
 background = "#000000"
-foreground = "#A0A0A0"
+foreground = "#a06666"
