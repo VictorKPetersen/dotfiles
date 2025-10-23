@@ -33,6 +33,10 @@ return {
 
             lualine_x = {
                 {
+                    "lsp_status",
+                    fmt = string.upper,
+                },
+                {
                     "encoding",
                     fmt = string.upper,
                 },
