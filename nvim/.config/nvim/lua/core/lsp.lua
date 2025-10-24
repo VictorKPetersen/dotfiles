@@ -3,6 +3,7 @@ local servers = {
     "lua_ls",
     "gopls",
     "ts_ls",
+    "svelte",
 }
 
 vim.lsp.enable(servers)
