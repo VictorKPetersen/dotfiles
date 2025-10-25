@@ -1,11 +1,11 @@
 local servers = {
     "basedpyright",
-    "lua_ls",
     "gopls",
+    "lua_ls",
     "ts_ls",
     "svelte",
 }
 
 vim.lsp.enable(servers)
 
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = false })
