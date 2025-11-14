@@ -8,6 +8,7 @@ return {
             linters_by_ft = {
                 python = { "ruff" },
                 java = { "checkstyle" },
+                terraform = { "terraform_validate" },
             },
         },
 

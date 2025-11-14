@@ -9,7 +9,7 @@ return {
             -- Bind Conform.format()
             "<leader>gf",
             function()
-                require("conform").format({timeout_ms = 3000})
+                require("conform").format({ timeout_ms = 3000 })
             end,
             mode = { "n", "v", },
             desc = "Format buffer",
@@ -21,6 +21,8 @@ return {
         formatters_by_ft = {
             go = { "gofumpt", },
             python = { "ruff_fix", "ruff_format", "ruff_organize_imports", },
+            terraform = { "terraform_fmt" },
+            ["terraform_vars"] = { "terraform_fmt" },
         },
 
         -- Set defualts

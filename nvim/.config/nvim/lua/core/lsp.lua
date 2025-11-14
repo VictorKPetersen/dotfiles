@@ -1,11 +1,11 @@
-local servers = {
-    "basedpyright",
-    "gopls",
-    "lua_ls",
-    "ts_ls",
-    "svelte",
-}
-
-vim.lsp.enable(servers)
-
+-- local servers = {
+--     "basedpyright",
+--     "gopls",
+--     "lua_ls",
+--     "ts_ls",
+--     "svelte",
+-- }
+--
+-- vim.lsp.enable(servers)
+-- Mason LSP config auto starts servers.
 vim.diagnostic.config({ virtual_text = false })
