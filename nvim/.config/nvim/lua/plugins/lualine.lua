@@ -2,67 +2,39 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "echasnovski/mini.icons", },
 
-    opts = {
-        options = {
-            theme = "auto"
-        },
+    config = function()
+        local theme = require("noirbuddy.plugins.lualine").theme
 
-        sections = {
-            lualine_a = {
-                { "mode", },
+        local sections = {
+            lualine_a = { 'mode' },
+            lualine_b = { 'branch', 'diff' },
+            lualine_c = { { 'filename', path = 1 }, { 'diagnostics', always_visible = true } },
+            lualine_x = { { 'filetype', colored = true }, 'encoding' },
+            lualine_y = { 'progress' },
+            lualine_z = { 'location' }
+        }
+
+        local inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = { { 'filename', path = 1 } },
+            lualine_x = { 'location' },
+            lualine_y = {},
+            lualine_z = {}
+        }
+
+        require("lualine").setup {
+            options = {
+                icons_enabled = true,
+                theme = theme,
+                filetype = { colored = true },
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
+                disabled_filetypes = {},
+                always_divide_middle = true,
             },
-
-            lualine_b = {
-                {
-                    "filename",
-                    path = 1,
-                },
-
-                {
-                    "filetype",
-                    icon_only = true,
-                },
-            },
-
-            lualine_c = {
-                {
-                    "diagnostics",
-                    always_visible = true,
-                },
-            },
-
-            lualine_x = {
-                {
-                    "lsp_status",
-                    fmt = string.upper,
-                },
-                {
-                    "encoding",
-                    fmt = string.upper,
-                },
-
-                {
-                    "fileformat",
-                    icons_enabled = false,
-                    fmt = string.upper,
-                },
-            },
-
-            lualine_y = {
-                {
-                    "branch",
-                    icon = " ",
-                    separator = "",
-                },
-
-                {
-                    "diff",
-                    symbols = { added = " ", modified = " ", removed = " " },
-                    separator = "",
-                },
-            },
-
-            lualine_z = {},
-        },
-    }
+            sections = sections,
+            inactive_sections = inactive_sections,
+        }
+    end
 }

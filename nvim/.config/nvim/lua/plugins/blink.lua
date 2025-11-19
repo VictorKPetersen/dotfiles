@@ -22,7 +22,7 @@ return {
             appearance = {
                 nerd_font_variant = "mono",
                 -- We use this because the colorscheme doesn't natively support blink.cmp
-                use_nvim_cmp_as_default = true,
+                -- use_nvim_cmp_as_default = true,
             },
 
             completion = {
@@ -85,6 +85,6 @@ return {
             }
         },
 
-        opts_extend = { "sources.default" }
+        opts_extend = { "sources.default" },
     },
 }
