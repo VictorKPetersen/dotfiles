@@ -30,3 +30,5 @@ vim.o.scrolloff = 3
 
 -- When jumping go to where the buffer was left
 vim.o.jumpoptions = "stack,view"
+
+vim.o.winborder = "rounded"

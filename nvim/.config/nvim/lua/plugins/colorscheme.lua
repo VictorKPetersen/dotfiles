@@ -14,7 +14,6 @@ return {
 
             styles = {
                 italic = true,
-                undercurl = true
             }
         },
 

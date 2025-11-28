@@ -14,8 +14,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function()
-        vim.keymap.set("n", "K", vim.lsp.buf.hover,
-            { desc = "Displays hover information about the symbol under the cursor" })
+        vim.keymap.set("n", "K", function()
+            vim.lsp.buf.hover({ border = "rounded" })
+        end, { desc = "Displays hover information about the symbol under the cursor" })
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
             { desc = "Code action for the symbol under the cursor" })
     end,
