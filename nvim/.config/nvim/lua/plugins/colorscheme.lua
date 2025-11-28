@@ -9,7 +9,7 @@ return {
         opts = {
             colors = {
                 background = "#050505",
-                primary = "#f2b046",
+                primary = "#ff8503",
             },
 
             styles = {
