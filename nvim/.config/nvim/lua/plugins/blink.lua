@@ -56,6 +56,8 @@ return {
 
         snippets = { preset = "default" },
 
+        signature = { enabled = true },
+
         sources = {
             default = {
                 "lsp",
