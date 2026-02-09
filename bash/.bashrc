@@ -16,6 +16,11 @@ eval "$(starship init bash)"
 
 export ANDROID_HOME=$HOME/Android/Sdk/
 
+# PYENV for managing multiple python versions
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/google-cloud-cli/google-cloud-sdk/path.bash.inc' ]; then . '/opt/google-cloud-cli/google-cloud-sdk/path.bash.inc'; fi
