@@ -38,6 +38,7 @@ return {
             "mason",
             "snacks_dashboard",
             "snacks_notif",
+            "minifiles"
         }
 
         vim.api.nvim_create_autocmd("FileType", {
