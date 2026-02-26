@@ -36,6 +36,7 @@ return {
             "checkhealth",
             "lazy",
             "mason",
+            "mason_backdrop",
             "snacks_dashboard",
             "snacks_notif",
             "minifiles"
