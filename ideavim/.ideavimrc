@@ -57,15 +57,16 @@ nnoremap <leader>yy "+yy
 nnoremap <leader>p "+p
 
 " Tab movement
-nnoremap <C-s-tab> gT
-nnoremap <C-tab> gt
+nnoremap <leader>eq gT
+nnoremap <leader>ee gt
 
 " Pane movement
 nnoremap <C-h> <c-w>h
 nnoremap <C-l> <c-w>l
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
-map <leader>q <Action>(CloseActiveTab)
+map <leader>qt <Action>(CloseActiveTab)
+map <leader>qq <Action>(CloseContent)
 
 
 " Previous file
@@ -88,7 +89,7 @@ nnoremap <leader>fm :NERDTree<cr>
 " Requires Fuzzier to work https://github.com/MituuZ/fuzzier
 " Manually set keymaps to <C-n> & <C-p>
 " In settings -> keymaps -> plugins -> fuzzier
-map <Leader>ff <Action>(com.mituuz.fuzzier.Fuzzier)
+map <leader>ff <Action>(com.mituuz.fuzzier.search.Fuzzier)
 
 map <leader>fr <Action>(RecentChangedFiles)
 map <leader>gs <Action>(FindInPath)
