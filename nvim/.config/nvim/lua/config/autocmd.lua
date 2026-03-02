@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
             { desc = "Code action for the symbol under the cursor" })
     end,
-    desc = "LSP: Disable hover capabillity from Ruff",
 })
 
 -- Make mini.files to apear in the center of the screen.
