@@ -1,7 +1,8 @@
 return {
-    cmd = { "jedi-language-server" },
+    cmd = { "ty", "server" },
     filetypes = { "python" },
     root_markers = {
+        "ty.toml",
         "pyproject.toml",
         "setup.py",
         "setup.cfg",
@@ -11,8 +12,8 @@ return {
     },
 
     settings = {
-        diagnostics = {
-            enable = false,
+        ty = {
+            diagnosticMode = "off",
         }
     }
 }

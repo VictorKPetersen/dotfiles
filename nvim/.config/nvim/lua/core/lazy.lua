@@ -25,7 +25,7 @@ require("lazy").setup({
 
         -- Colorscheme that will be used when installing plugins.
         -- Try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "tokyonight-night", "lunaperche", },
+        colorscheme = { "noirbuddy", "lunaperche", },
     },
 
     -- Automatically check for plugin updates
