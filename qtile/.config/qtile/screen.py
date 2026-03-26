@@ -1,7 +1,7 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from options import custom_color
+from options import custom_color, show_battery
 
 widget_defaults = dict(
     font="UbuntuMono Nerd Font",
@@ -9,6 +9,20 @@ widget_defaults = dict(
     padding=4,
 )
 extension_defaults = widget_defaults.copy()
+
+battery_widget = [
+    widget.Battery(
+        background=custom_color[0],
+        foreground=custom_color[2],
+        charge_char="󰂄",
+        discharge_char="󰂌",
+        empty_char="󰂃",
+        full_char="󰁹",
+        not_charging_char="󰂃",
+        low_foreground=custom_color[9],
+        format="{char} {percent:2.0%} | {watt:.2f} W",
+    ),
+] if show_battery else []
 
 widget_list = [
     widget.GroupBox(
@@ -47,17 +61,7 @@ widget_list = [
         fmt=" {}",
         mute_format=" ",
     ),
-    widget.Battery(
-        background=custom_color[0],
-        foreground=custom_color[2],
-        charge_char="󰂄",
-        discharge_char="󰂌",
-        empty_char="󰂃",
-        full_char="󰁹",
-        not_charging_char="󰂃",
-        low_foreground=custom_color[9],
-        format="{char} {percent:2.0%} | {watt:.2f} W",
-    ),
+    *battery_widget,
 ]
 
 screens = [

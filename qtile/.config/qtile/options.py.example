@@ -1,4 +1,4 @@
-displayBattery = True
+show_battery = True
 netInterface = "wlp1s0"
 mod = "mod4"
 terminal = "alacritty"
