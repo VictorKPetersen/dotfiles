@@ -40,7 +40,8 @@ return {
             "snacks_dashboard",
             "snacks_notif",
             "minifiles",
-            "mason_backdrop"
+            "mason_backdrop",
+            "lazy_backdrop",
         }
 
         vim.api.nvim_create_autocmd("FileType", {

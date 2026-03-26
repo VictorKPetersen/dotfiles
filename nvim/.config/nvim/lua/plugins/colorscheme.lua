@@ -58,5 +58,5 @@ return {
             Group.link("MiniFilesDirectory", groups.SnacksPickerDir)
             Group.link("MiniFilesFile", groups.SnacksPickerFile)
         end
-    }
+    },
 }
