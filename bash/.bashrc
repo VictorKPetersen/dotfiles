@@ -31,5 +31,5 @@ if [ -f '/opt/google-cloud-cli/google-cloud-sdk/path.bash.inc' ]; then . '/opt/g
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google-cloud-cli/google-cloud-sdk/completion.bash.inc' ]; then . '/opt/google-cloud-cli/google-cloud-sdk/completion.bash.inc'; fi
 
-source '/home/sol/.bash_completions/hf.sh'
+if [ -f "$HOME/.bash_completions/hf.sh" ]; then . "$HOME/.bash_completions/hf.sh"; fi
 
