@@ -62,6 +62,7 @@ widget_list = [
         mute_format=" ",
     ),
     *battery_widget,
+    widget.Systray(),
 ]
 
 screens = [
