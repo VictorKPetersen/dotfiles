@@ -1,119 +1,77 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
-# autostart imports
 import os
-import subprocess
 
-# qtile imports
-from libqtile import layout, hook
-from libqtile.config import Match, Group
+from libqtile import hook, layout, qtile
+from libqtile.config import Group, Key, Match
+from libqtile.lazy import lazy
 
-
-# config imports
-import keymaps
-import screeninfo
-import options
-
-colorScheme = options.colorScheme
+from keymaps import keys
+from mousemaps import mouse
+from options import custom_color, mod
+from screen import screens
 
 
 # Hook that runs upon startup, calls the autostart.sh script
 @hook.subscribe.startup_once
 def start_once():
-    autostart = os.path.expanduser('~/.config/qtile/Scripts/autostart.sh')
-    subprocess.Popen([autostart])
+    if qtile.core.name == "x11":
+        autostart = os.path.expanduser("~/.config/qtile/Scripts/autostart.sh")
+        os.subprocess.Popen([autostart])
 
 
-# Get remaps for the keyboard from keymaps.py
-keys = keymaps.initKeymaps()
+keys = keys
+mouse = mouse
 
 
-# Get remaps for the mouse from keymaps.py
-mouse = keymaps.initMouseMaps()
+# for vt in range(1, 8):
+#     keys.append(
+#         Key(
+#             ["control", "mod1"],
+#             f"f{vt}",
+#             lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
+#             desc=f"Switch to VT{vt}",
+#         )
+#     )
 
 
-# Set Up groups
-groups = []
-
-group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-group_labels = [" ", " ", "󱓟 ", " ", " ", "󰣘 ", " ", "󱎃 ", " "]
-group_layouts = ["monadthreecol", "max", "max", "max", "max", "max", "max", "max", "max"]
-
-for i in range(len(group_names)):
-    groups.append(
-        Group(
-            name=group_names[i],
-            layout=group_layouts[i].lower(),
-            label=group_labels[i],
-        )
+groups = [Group(i) for i in "123456789"]
+for i in groups:
+    keys.extend(
+        [
+            Key(
+                [mod],
+                i.name,
+                lazy.group[i.name].toscreen(),
+                desc=f"Switch to group {i.name}",
+            ),
+            Key(
+                [mod, "shift"],
+                i.name,
+                lazy.window.togroup(i.name, switch_group=False),
+                desc=f"Switch to & move focused window to group {i.name}",
+            ),
+        ]
     )
 
-# Append the keymaps for switching between different window groups
-keys.extend(keymaps.setUpVirtualDesktopSwitching(groups))
-
-
-# Define default themes for layouts
-layoutTheme = {
+layout_theme = {
     "border_width": 1,
-    "border_focus": colorScheme[2],
-    "border_normal": colorScheme[0],
-    "margin": 0
+    "border_focus": custom_color[2],
+    "border_normal": custom_color[0],
+    "margin": 0,
 }
 
-
-# Define active layouts
 layouts = [
-    layout.Max(**layoutTheme),
+    layout.Max(
+        **layout_theme,
+    ),
     layout.MonadThreeCol(
-        **layoutTheme,
+        **layout_theme,
         main_centered=True,
         new_client_position="bottom",
-        ratio=0.50
+        ratio=0.50,
     ),
-
-    # Try more layouts by unleashing below layouts.
-    # layout.MonadTall(**layoutTheme),
-    # layout.MonadWide(**layoutTheme),
-    # layout.Stack(**layoutTheme, num_stacks=2),
-    # layout.Bsp(**layoutTheme),
-    # layout.Matrix(**layoutTheme),
-    # layout.RatioTile(**layoutTheme),
-    # layout.Tile(**layoutTheme),
-    # layout.TreeTab(**layoutTheme),
-    # layout.VerticalTile(**layoutTheme),
-    # layout.Zoomy(**layoutTheme),
-    # layout.Columns(**layoutTheme, border_focus_stack=["#d75f5f", "#8f3d3d"]),
 ]
 
-widget_defaults = screeninfo.initWidgetDefaults()
-extension_defaults = widget_defaults.copy()
-
-
-screens = screeninfo.initScreens()
+screens = screens
 
 
 dgroups_key_binder = None
@@ -132,20 +90,26 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        Match(wm_class="dk.sdu.mmmi.cbse.main.Main"),
-        Match(wm_class="dk.sdu.vkp.main.Game"),
-        Match(wm_class="Emerald Edgers"),
-        Match(wm_class="qemu-system-x86_64"), # Android Emulator
     ]
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+focus_previous_on_window_remove = False
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
 
+# When using the Wayland backend, this can be used to configure input devices.
+wl_input_rules = None
+
+# xcursor theme (string or None) and size (integer) for Wayland backend
+wl_xcursor_theme = None
+wl_xcursor_size = 24
+
+idle_timers = []  # type: list
+idle_inhibitors = []  # type: list
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
