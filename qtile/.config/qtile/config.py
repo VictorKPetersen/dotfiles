@@ -1,12 +1,13 @@
 import os
+import subprocess
 
 from libqtile import hook, layout, qtile
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
+from options import custom_color, mod
 
 from keymaps import keys
 from mousemaps import mouse
-from options import custom_color, mod
 from screen import screens
 
 
@@ -15,7 +16,7 @@ from screen import screens
 def start_once():
     if qtile.core.name == "x11":
         autostart = os.path.expanduser("~/.config/qtile/Scripts/autostart.sh")
-        os.subprocess.Popen([autostart])
+        subprocess.Popen([autostart])
 
 
 keys = keys
