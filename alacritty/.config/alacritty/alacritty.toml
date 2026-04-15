@@ -24,30 +24,30 @@ style = "Italic"
 family = "UbuntuMono Nerd Font"
 style = "Regular"
 
-[colors.bright]
-black = "#5f8787"
-blue = "#aaaaaa"
-cyan = "#999999"
-green = "#a06666"
-magenta = "#888888"
-red = "#aaaaaa"
-white = "#444444"
-yellow = "#dd9999"
-
-[colors.normal]
-black = "#000000"
-blue = "#121212"
-cyan = "#222222"
-green = "#333333"
-magenta = "#999999"
-red = "#c1c1c1"
-white = "#999999"
-yellow = "#c1c1c1"
-
-[colors.cursor]
-cursor = "#c1c1c1"
-text = "#dd9999"
-
+# [colors.bright]
+# black = "#5f8787"
+# blue = "#aaaaaa"
+# cyan = "#999999"
+# green = "#a06666"
+# magenta = "#888888"
+# red = "#aaaaaa"
+# white = "#444444"
+# yellow = "#dd9999"
+#
+# [colors.normal]
+# black = "#000000"
+# blue = "#121212"
+# cyan = "#222222"
+# green = "#333333"
+# magenta = "#999999"
+# red = "#c1c1c1"
+# white = "#999999"
+# yellow = "#c1c1c1"
+#
+# [colors.cursor]
+# cursor = "#c1c1c1"
+# text = "#dd9999"
+#
 [colors.primary]
 background = "#000000"
-foreground = "#a06666"
+# foreground = "#a06666"
