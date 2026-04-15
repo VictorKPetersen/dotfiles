@@ -1,5 +1,5 @@
 return {
-    cmd = { "ty", "server" },
+    cmd = { "zuban", "server" },
     filetypes = { "python" },
     root_markers = {
         "ty.toml",
@@ -10,10 +10,4 @@ return {
         "Pipfile",
         ".git",
     },
-
-    settings = {
-        ty = {
-            diagnosticMode = "off",
-        }
-    }
 }
