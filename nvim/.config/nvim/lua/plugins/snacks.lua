@@ -84,5 +84,6 @@ return {
 
         -- Other snakcs
         { "<leader>db", function() Snacks.dashboard() end,                  desc = "Open dashboard" },
+        { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     },
 }
